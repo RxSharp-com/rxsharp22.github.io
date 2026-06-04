@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russell Sharp — RxSharp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 300;
+  background-color: #fafaf9;
+  color: #1a1a1a;
+  padding: 0 1.5rem;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+header {
+  border-bottom: 0.5px solid #e5e5e3;
+  padding: 2.5rem 0 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.wordmark span {
+  color: #1a1a1a;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #1a1a1a;
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding: 4rem 0 3rem;
+  border-bottom: 0.5px solid #e5e5e3;
+}
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.bio {
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.bio p + p {
+  margin-top: 1rem;
+}
+
+.tags {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 0.5px solid #ddd;
+  border-radius: 2px;
+  color: #888;
+}
+
+/* --- Work Section --- */
+.section {
+  padding: 2.5rem 0;
+  border-bottom: 0.5px solid #e5e5e3;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+/* Project card */
+.project-card {
+  border: 0.5px solid #e5e5e3;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.project-card-header {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.project-icon {
+  width: 40px;
+  height: 40px;
+  border: 0.5px solid #ddd;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+}
+
+.project-name {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #888;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1D9E75;
+}
+
+/* Project actions row */
+.project-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 0.5px solid #e5e5e3;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-primary {
+  background: #1a1a1a;
+  color: #fafaf9;
+}
+
+.btn-primary:hover {
+  background: #333;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #888;
+  border: 0.5px solid #ddd;
+}
+
+.btn-secondary:hover {
+  color: #1a1a1a;
+  border-color: #aaa;
+}
+
+/* Site preview iframe */
+.preview-wrapper {
+  margin-top: 1rem;
+  border: 0.5px solid #e5e5e3;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  display: none; /* shown via JS */
+}
+
+.preview-bar {
+  background: #f4f4f3;
+  border-bottom: 0.5px solid #e5e5e3;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.preview-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.04em;
+}
+
+.preview-wrapper iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+
+/* --- Contact Section --- */
+.contact-intro {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #1a1a1a;
+  background: #fff;
+  border: 0.5px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #888;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-submit {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-submit {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background: #1a1a1a;
+  color: #fafaf9;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-submit:hover {
+  background: #333;
+}
+
+.form-note {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #bbb;
+  letter-spacing: 0.06em;
+}
+
+.form-success {
+  display: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #1D9E75;
+  letter-spacing: 0.06em;
+  padding: 12px 0;
+}
+
+/* --- Footer --- */
+footer {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+
+.footer-contact {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.footer-contact:hover {
+  color: #1a1a1a;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="wordmark"><span>Rx</span>Sharp</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO / ABOUT -->
+  <section class="hero" id="about">
+    <p class="eyebrow">Russell Sharp — Pharmacist &amp; Builder</p>
+    <h1>Clinical minds<br>build better tools.</h1>
+    <div class="bio">
+      <p>I'm a pharmacist and clinical infusion pharmacy manager with a background in retail and infusion care. Much of my work involves helping patients understand complex therapies, which led me to start building Dosecraft — an interactive simulation that uses game mechanics to teach how medications work.</p>
+      <p>This site documents that process. It's a place to share projects, experiments, and lessons learned while teaching myself software development and exploring ideas at the intersection of healthcare, education, and technology.</p>
+    </div>
+    <div class="tags">
+      <span class="tag">Pharmacist</span>
+      <span class="tag">Healthcare Technology</span>
+      <span class="tag">Fayetteville, AR</span>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <p class="section-label">Current work</p>
+
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-icon">Dc</div>
+        <div>
+          <p class="project-name">Dosecraft: Infusion Arcade</p>
+          <p class="project-desc">A real-time simulation platform for IV infusion patients — turning clinical downtime into calm, visual understanding of how their medication works. Drug mechanisms become game mechanics.</p>
+          <div class="status">
+            <span class="dot"></span>
+            Active development · dosecraft.io
+          </div>
+        </div>
+      </div>
+
+      <div class="project-actions">
+        <a href="https://dosecraft.io" target="_blank" rel="noopener" class="btn btn-primary">Visit dosecraft.io ↗</a>
+        <button class="btn btn-secondary" onclick="togglePreview(this)">Preview site</button>
+      </div>
+
+      <div class="preview-wrapper" id="dosecraft-preview">
+        <div class="preview-bar">
+          <div class="preview-dots">
+            <div class="preview-dot"></div>
+            <div class="preview-dot"></div>
+            <div class="preview-dot"></div>
+          </div>
+          <span class="preview-url">dosecraft.io</span>
+        </div>
+        <iframe
+          src="https://dosecraft.io"
+          title="Dosecraft: Infusion Arcade"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-forms"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <p class="section-label">Contact</p>
+    <p class="contact-intro">Questions, ideas, or just want to follow the project? Send a message and I'll get back to you.</p>
+
+    <form id="contact-form" action="https://formspree.io/f/hello@rxsharp.com" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="" disabled selected>Select a topic</option>
+          <option value="Dosecraft">Dosecraft</option>
+          <option value="Collaboration">Collaboration</option>
+          <option value="General">General</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Send message</button>
+        <span class="form-note">Goes directly to hello@rxsharp.com</span>
+      </div>
+    </form>
+
+    <p class="form-success" id="form-success">✓ Message sent. I'll be in touch.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">rxsharp.com</span>
+    <a class="footer-contact" href="mailto:hello@rxsharp.com">hello@rxsharp.com</a>
+  </footer>
+
+</div>
+
+<script>
+  // Toggle the Dosecraft site preview iframe
+  function togglePreview(btn) {
+    const wrapper = document.getElementById('dosecraft-preview');
+    const isOpen = wrapper.style.display === 'block';
+    wrapper.style.display = isOpen ? 'none' : 'block';
+    btn.textContent = isOpen ? 'Preview site' : 'Hide preview';
+  }
+
+  // Contact form: handle submission feedback
+  // Uses Formspree — swap the action URL with your Formspree endpoint after signup
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        // Fallback: open mailto if fetch fails
+        const name    = encodeURIComponent(data.get('name') || '');
+        const subject = encodeURIComponent(data.get('subject') || 'Message from rxsharp.com');
+        const body    = encodeURIComponent(`From: ${data.get('name')} <${data.get('email')}>\n\n${data.get('message')}`);
+        window.location.href = `mailto:hello@rxsharp.com?subject=${subject}&body=${body}`;
+      }
+    } catch {
+      // Network error fallback
+      const subject = encodeURIComponent('Message from rxsharp.com');
+      window.location.href = `mailto:hello@rxsharp.com?subject=${subject}`;
+    }
+  });
+</script>
+
+</body>
+</html>
