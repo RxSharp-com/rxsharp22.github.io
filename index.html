@@ -526,7 +526,7 @@ footer {
 
       <div class="form-submit">
         <button type="submit" class="btn-submit">Send message</button>
-        <span class="form-note">Goes directly to hello@rxsharp.com</span>
+        <span class="form-note">Goes directly to russellsharp8@gmail.com</span>
       </div>
     </form>
 
@@ -536,7 +536,7 @@ footer {
   <!-- FOOTER -->
   <footer>
     <span class="footer-name">rxsharp.com</span>
-    <a class="footer-contact" href="mailto:hello@rxsharp.com">hello@rxsharp.com</a>
+    <a class="footer-contact" href="mailto:russellsharp8@gmail.com">russellsharp8@gmail.com</a>
   </footer>
 
 </div>
@@ -574,12 +574,12 @@ footer {
         const name    = encodeURIComponent(data.get('name') || '');
         const subject = encodeURIComponent(data.get('subject') || 'Message from rxsharp.com');
         const body    = encodeURIComponent(`From: ${data.get('name')} <${data.get('email')}>\n\n${data.get('message')}`);
-        window.location.href = `mailto:hello@rxsharp.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:russellsharp8@gmail.com?subject=${subject}&body=${body}`;
       }
     } catch {
       // Network error fallback
       const subject = encodeURIComponent('Message from rxsharp.com');
-      window.location.href = `mailto:hello@rxsharp.com?subject=${subject}`;
+      window.location.href = `mailto:russellsharp8@gmail.com?subject=${subject}`;
     }
   });
 </script>
