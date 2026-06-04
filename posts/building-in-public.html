@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building in Public: Why I'm Documenting This — RxSharp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .post-meta {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
 
+    .post-meta-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    .post-meta-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      padding: 3px 8px;
+      border: 0.5px solid var(--border-dark);
+      border-radius: 2px;
+    }
+
+    .post-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .post-body p + p {
+      margin-top: 1.4rem;
+    }
+
+    .post-body h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .post-body a:hover {
+      color: var(--text-muted);
+    }
+
+    .post-body blockquote {
+      border-left: 2px solid var(--border-dark);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <a href="../index.html" style="text-decoration:none;">
+        <div class="wordmark"><span>Rx</span>Sharp</div>
+      </a>
+      <nav>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- POST -->
+    <section class="hero">
+      <p class="eyebrow">Dev journey</p>
+      <h1>Building in Public:<br>Why I'm Documenting This</h1>
+      <div class="post-meta">
+        <span class="post-meta-date">June 2026</span>
+        <span class="post-meta-tag">Dev journey</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-body">
+
+        <p>I'm a pharmacist. I manage an infectious disease infusion clinic. I have no formal background in software development, and until recently, no real reason to think I'd be building anything.</p>
+
+        <p>Then I started building Dosecraft — a simulation platform for infusion patients — and realized I needed to actually learn how any of this works. This site is part of that process.</p>
+
+        <h2>Why write about it?</h2>
+
+        <p>Mostly accountability. It's easy to tinker indefinitely without shipping anything. Writing forces a kind of clarity that just building doesn't — you have to actually articulate what you did, why it didn't work, and what you tried next.</p>
+
+        <p>There's also something worth documenting about learning software development as a clinician. Most dev content assumes you want to be a developer. I don't, exactly. I want to build a specific thing, and I'm learning what I need to learn to do that.</p>
+
+        <blockquote>The goal isn't to become a programmer. The goal is to build something that helps patients understand their treatment.</blockquote>
+
+        <p>If that distinction resonates with you — if you're a domain expert teaching yourself to build — maybe some of this is useful.</p>
+
+        <h2>What this site is for</h2>
+
+        <p>This is a place to document Dosecraft, share experiments, and be honest about what I don't know. It's not a polished portfolio. It's closer to a public notebook.</p>
+
+        <p>More soon.</p>
+
+      </div>
+    </section>
+
+    <!-- POST NAVIGATION -->
+    <div class="post-nav">
+      <a class="back-link" href="../writing.html">← All posts</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-name">rxsharp.com</span>
+      <a class="footer-contact" href="mailto:russellsharp8@gmail.com">russellsharp8@gmail.com</a>
+    </footer>
+
+  </div>
+</body>
+</html>
