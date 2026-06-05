@@ -1,203 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building in Public: Why I'm Documenting This — RxSharp</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .post-meta {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .post-meta-date {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-faint);
-    }
-
-    .post-meta-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      padding: 3px 8px;
-      border: 0.5px solid var(--border-dark);
-      border-radius: 2px;
-    }
-
-    .post-body {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.8;
-      max-width: 600px;
-    }
-
-    .post-body p + p {
-      margin-top: 1.4rem;
-    }
-
-    .post-body h2 {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 400;
-      color: var(--text);
-      margin-top: 2.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .post-body a {
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .post-body a:hover {
-      color: var(--text-muted);
-    }
-
-    .post-body blockquote {
-      border-left: 2px solid var(--border-dark);
-      padding-left: 1.25rem;
-      margin: 1.5rem 0;
-      color: var(--text-light);
-      font-style: italic;
-    }
-
-    .back-link {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      text-decoration: none;
-    }
-
-    .back-link:hover {
-      color: var(--text);
-    }
-
-    .post-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 0;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building in Public: Why I'm Documenting This | RxSharp</title>
+  <meta name="description" content="A short note on why RxSharp exists, what I'm learning by building Dosecraft, and why I'm documenting the process in public." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
+
 <body>
-  <div class="container">
+  <header class="site-header">
+    <a class="site-logo" href="../index.html">RxSharp</a>
 
-    <!-- HEADER -->
-    <header>
-      <a href="../index.html" style="text-decoration:none;">
-        <div class="wordmark"><span>Rx</span>Sharp</div>
-      </a>
-      <nav>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#work">Work</a>
-        <a href="../writing.html">Writing</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
-    </header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../about.html">About</a>
+      <a href="../work.html">Work</a>
+      <a href="../writing.html">Writing</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <!-- POST -->
-    <section class="hero">
-      <p class="eyebrow">Dev journey</p>
-      <h1>Building in Public:<br>Why I'm Documenting This</h1>
-      <div class="post-meta">
-        <span class="post-meta-date">June 2026</span>
-        <span class="post-meta-tag">Dev journey</span>
-      </div>
-    </section>
+  <main>
+    <article class="post">
+      <header class="post-header">
+        <p class="eyebrow">Dev journey</p>
+        <h1>Building in Public:<br />Why I'm Documenting This</h1>
+        <p class="post-meta">June 2026 · Dev journey</p>
+      </header>
 
-    <section class="section">
-      <div class="post-body">
+      <section class="post-content">
+        <p>
+          I'm a pharmacist. I manage an infectious disease infusion clinic. I did not go to school for software development, and until recently, I had no real reason to think I would be building websites, games, or anything that required me to stare suspiciously at HTML files.
+        </p>
 
-        <p>I'm a pharmacist. I manage an infectious disease infusion clinic. I have no formal background in software development, and until recently, no real reason to think I'd be building anything.</p>
+        <p>
+          Then I started building Dosecraft.
+        </p>
 
-        <p>Then I started building Dosecraft — a simulation platform for infusion patients — and realized I needed to actually learn how any of this works. This site is part of that process.</p>
+        <p>
+          Dosecraft began as a way to make infusion education feel less sterile and less forgettable. Patients are often handed information in the least human format possible: dense paperwork, medical jargon, and a quick explanation while a lot is already happening around them. I wanted to see whether some of that education could be made more interactive, more visual, and maybe even a little fun without turning it into a gimmick.
+        </p>
+
+        <p>
+          That simple idea dragged me into web development.
+        </p>
+
+        <p>
+          Not a bad swamp. Interesting swamp. But still a swamp.
+        </p>
 
         <h2>Why write about it?</h2>
 
-        <p>Mostly accountability. It's easy to tinker indefinitely without shipping anything. Writing forces a kind of clarity that just building doesn't — you have to actually articulate what you did, why it didn't work, and what you tried next.</p>
+        <p>
+          Mostly accountability.
+        </p>
 
-        <p>There's also something worth documenting about learning software development as a clinician. Most dev content assumes you want to be a developer. I don't, exactly. I want to build a specific thing, and I'm learning what I need to learn to do that.</p>
+        <p>
+          It is easy to tinker forever. Rename things. Redesign things. Switch tools. Start over. Convince yourself you are still planning when really you are circling the same idea again.
+        </p>
 
-        <blockquote>The goal isn't to become a programmer. The goal is to build something that helps patients understand their treatment.</blockquote>
+        <p>
+          Writing makes that harder. It forces me to explain what I am building, what broke, what I learned, and what I am trying next.
+        </p>
 
-        <p>If that distinction resonates with you — if you're a domain expert teaching yourself to build — maybe some of this is useful.</p>
+        <p>
+          There is also something worth documenting about learning software development as a clinician. Most beginner coding content assumes the goal is to become a developer. That is not really my goal.
+        </p>
+
+        <blockquote>
+          <p>The goal is not to become a programmer. The goal is to build useful things around healthcare, pharmacy, patient education, and the weird little systems that shape how care actually happens.</p>
+        </blockquote>
 
         <h2>What this site is for</h2>
 
-        <p>This is a place to document Dosecraft, share experiments, and be honest about what I don't know. It's not a polished portfolio. It's closer to a public notebook.</p>
+        <p>
+          RxSharp is my personal and professional home base. It is part bio, part project hub, part public notebook, and part experiment in learning how the web works when you actually own the domain and the files underneath it.
+        </p>
 
-        <p>More soon.</p>
+        <p>
+          For now, I expect to write about building Dosecraft, learning web development, pharmacy workflows, patient and caregiver education, and ideas that are too early to be businesses but still worth exploring.
+        </p>
 
-      </div>
-    </section>
+        <p>
+          That last category matters. Not every idea needs to become a company. Some ideas need to sit on the workbench for a while. Some need to be written through. Some need to be tested in small, low-pressure ways before they deserve a logo, a domain, or another monthly subscription quietly nibbling at my bank account.
+        </p>
 
-    <!-- POST NAVIGATION -->
-    <div class="post-nav">
-      <a class="back-link" href="../writing.html">← All posts</a>
-    </div>
+        <p>
+          This site gives those ideas somewhere to live.
+        </p>
 
-    <!-- FOOTER -->
-    <footer>
-  <span class="footer-name">rxsharp.com</span>
+        <h2>What I am not pretending</h2>
 
-  <div style="display:flex; align-items:center; gap:1.25rem;">
+        <p>
+          I am not pretending this is a polished portfolio. I am not pretending I know exactly what RxSharp becomes. I am definitely not pretending that learning to code with AI tools is effortless. It can be helpful, but it can also feel like having a very confident assistant who occasionally hands you a map to a city that does not exist.
+        </p>
 
-    <!-- GitHub -->
-    <a href="https://github.com/RxSharp-com" target="_blank" rel="noopener"
-       class="footer-contact" title="GitHub" aria-label="GitHub">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="1.5"
-           stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
-                 c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
-                 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0
-                 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77
-                 a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7
-                 A3.37 3.37 0 0 0 9 18.13V22"/>
-      </svg>
-    </a>
+        <p>
+          The point is not perfection. The point is to keep building, keep learning, and keep turning vague ideas into something visible enough to judge.
+        </p>
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/russell-sharp-06863478" target="_blank" rel="noopener"
-       class="footer-contact" title="LinkedIn" aria-label="LinkedIn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="1.5"
-           stroke-linecap="round" stroke-linejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-        <rect x="2" y="9" width="4" height="12"/>
-        <circle cx="4" cy="4" r="2"/>
-      </svg>
-    </a>
+        <p>
+          More soon.
+        </p>
+      </section>
 
-    <!-- Instagram -->
-    <a href="https://instagram.com/rxsharp" target="_blank" rel="noopener"
-       class="footer-contact" title="Instagram" aria-label="Instagram">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="1.5"
-           stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-      </svg>
-    </a>
+      <footer class="post-footer">
+        <a href="../writing.html">← All posts</a>
+      </footer>
+    </article>
+  </main>
 
-  </div>
-</footer>
-
-  </div>
+  <footer class="site-footer">
+    <p>rxsharp.com</p>
+    <nav aria-label="Footer links">
+      <a href="https://github.com/RxSharp-com">GitHub</a>
+      <a href="https://www.linkedin.com/">LinkedIn</a>
+      <a href="https://www.instagram.com/">Instagram</a>
+    </nav>
+  </footer>
 </body>
 </html>
