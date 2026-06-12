@@ -16,6 +16,12 @@
   --border-dark: #ddd;
 
   --accent: #1D9E75;
+   --accent-hover: #178662;
+  --accent-soft: rgba(29, 158, 117, 0.12);
+
+--success: #1D9E75;
+--warning: #D97706;
+--danger: #DC2626;
 
   /* Typography */
   --font-body: 'Figtree', sans-serif;
@@ -188,12 +194,14 @@ h1 {
   padding: 1.25rem 1.5rem;
   transition:
     transform var(--transition-normal),
+    border-color var(--transition-normal),
     box-shadow var(--transition-normal);
 }
 
 .project-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
 }
 
 .project-card-header {
@@ -243,11 +251,11 @@ h1 {
 }
 
 .dot {
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
+  background: var(--success);
+  box-shadow: 0 0 8px var(--accent-soft);
 }
 
 /* ==================================================
@@ -280,18 +288,25 @@ h1 {
   color: var(--bg);
 }
 
+.btn-primary {
+  transition: var(--transition-fast);
+}
+
 .btn-primary:hover {
-  opacity: 0.9;
+  transform: translateY(-1px);
+  opacity: 0.95;
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text-light);
   border: 0.5px solid var(--border-dark);
+  transition: var(--transition-fast);
 }
 
 .btn-secondary:hover {
   color: var(--text);
+  border-color: var(--text-light);
 }
 
 /* ==================================================
@@ -399,8 +414,12 @@ h1 {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  transition: var(--transition-fast);
 }
-
+.btn-submit:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
 .form-success {
   display: none;
   font-family: var(--font-mono);
