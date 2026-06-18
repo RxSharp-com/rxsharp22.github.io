@@ -1,0 +1,20 @@
+name: RxSharp.com First Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Print confirmation
+        run: echo "RxSharp workflow is running successfully"
+
+      - name: Show file list
+        run: ls -R
