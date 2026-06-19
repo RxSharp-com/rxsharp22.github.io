@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Pharmacist to Game Developer: Building Dosecraft: Infusion Arcade — RxSharp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .post-meta {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .post-meta-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    .post-meta-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      padding: 3px 8px;
+      border: 0.5px solid var(--border-dark);
+      border-radius: 2px;
+    }
+
+    .post-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .post-body p + p {
+      margin-top: 1.4rem;
+    }
+
+    .post-body h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .post-body a:hover {
+      color: var(--text-muted);
+    }
+
+    .post-body blockquote {
+      border-left: 2px solid var(--border-dark);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .post-body em {
+      color: var(--text-light);
+    }
+
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="../index.html" style="text-decoration:none;">
+        <div class="wordmark"><span>Rx</span>Sharp</div>
+      </a>
+      <nav>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Dosecraft</p>
+        <h1>From Pharmacist to Game Developer:<br>Building Dosecraft: Infusion Arcade</h1>
+        <div class="post-meta">
+          <span class="post-meta-date">June 2026</span>
+          <span class="post-meta-tag">Dev journey</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="post-body">
+          <p><em>How I turned IV infusion chair downtime into an interactive experience with no prior web development experience.</em></p>
+
+          <p>There is a particular kind of stillness that settles over an infusion clinic.</p>
+
+          <p>Patients sit in chairs for hours, connected to an IV line, watching a bag of medication slowly drain. They might scroll their phone. They might stare at the ceiling. They might quietly wonder what exactly is happening inside their body right now.</p>
+
+          <p>I am a pharmacist. I have answered that question plenty of times.</p>
+
+          <p>But I kept coming back to a different version of it: what if the answer could show itself?</p>
+
+          <p>That question became <strong>Dosecraft: Infusion Arcade</strong>.</p>
+
+          <h2>The Idea</h2>
+
+          <p>Dosecraft is not a course. It is not a quiz. It is not a health education module hiding behind arcade colors.</p>
+
+          <p>The idea is more specific than that: a phone-based game patients can play while they are actively receiving an IV medication. The game runs alongside the infusion and uses arcade mechanics to represent what the medication is doing.</p>
+
+          <p>A beta-lactam antibiotic weakens the bacterial cell wall, so that game becomes a wall-breaking mechanic. Vancomycin blocks a key building block in cell wall synthesis, so that game plays differently. Daptomycin disrupts the bacterial membrane, so the game has to show insertion, membrane disruption, and loss of membrane potential.</p>
+
+          <p>The pharmacology drives the design. That has been the main rule from the beginning.</p>
+
+          <p>I do not want Dosecraft to be a generic game with medical vocabulary sprinkled on top. The goal is for the gameplay itself to carry the concept.</p>
+
+          <h2>The Problem: I Had Never Built a Website</h2>
+
+          <p>I am a pharmacist, not a software developer.</p>
+
+          <p>When I started, I had essentially no web development experience. GitHub, repositories, JavaScript, service workers, browser caching, deployment workflows, and mobile formatting were all new territory.</p>
+
+          <p>The gap between “I have an idea” and “this is a working website” felt pretty ridiculous.</p>
+
+          <p>I started anyway.</p>
+
+          <p>The first version was intentionally simple: React loaded through a CDN, Babel running in the browser, and most of the project living in one JavaScript file. It was not the fanciest setup, but it let me start building without getting buried in tooling before I understood what I was doing.</p>
+
+          <p>That choice helped me move quickly, but it also taught me that early shortcuts can become load-bearing walls.</p>
+
+          <p>One of the first real technical lessons came from an unpinned CDN dependency. Babel updated, my project silently broke, and I spent hours trying to understand why something that had worked before suddenly did not. The fix was simple once I found it: pin the version.</p>
+
+          <p>The lesson stuck harder than the fix.</p>
+
+          <blockquote>Invisible failures are some of the worst failures. And “it worked yesterday” is not a debugging strategy.</blockquote>
+
+          <h2>Building the Game Around the Drug</h2>
+
+          <p>The project grew one medication class at a time.</p>
+
+          <p>The beta-lactam game became a brick-breaker style mode where the player weakens bacterial cell wall structures. Vancomycin required a different approach because the drug is not just smashing an existing wall; it is interfering with the building process. Daptomycin became more layered because its mechanism naturally unfolds in phases. IVIG forced a completely different design because immunoglobulin therapy is not antibacterial in the same way.</p>
+
+          <p>That was one of the more interesting parts of the process. The science started telling me what the game should become.</p>
+
+          <p>As a pharmacist, I am used to asking whether an explanation is accurate. This project has forced me to ask a second question:</p>
+
+          <blockquote>Is this explanation playable?</blockquote>
+
+          <p>A medically accurate paragraph can still be bad education if no one wants to read it, or if it makes sense only to someone who already understands the topic. Dosecraft has pushed me to think less like I am writing a lecture and more like I am building a mental model someone can interact with.</p>
+
+          <p>That balance is harder than I expected.</p>
+
+          <p>Accuracy matters. But so does clarity. So does pacing. So does font size. So does whether the person in the chair can understand what is happening without me standing there explaining it.</p>
+
+          <h2>The Infusion Companion</h2>
+
+          <p>The part that made the project feel more real was the infusion companion mode.</p>
+
+          <p>Patients can choose their infusion duration, such as 30 minutes, 1 hour, 2 hours, or 3 hours. The app then tracks real elapsed infusion time while they play. An IV bag drains on screen. Progress messages appear as the infusion continues. The game round is not separate from the treatment time; it sits beside it.</p>
+
+          <p>That distinction matters.</p>
+
+          <p>Dosecraft is not trying to be an app store game that happens to mention medications. It is designed for the infusion chair. The patient is there for the medication. The game exists to make that time more understandable and, hopefully, a little less empty.</p>
+
+          <p>Building that feature also taught me a practical design lesson: infusion session state and game round state have to stay separate. Ending a game round should not interfere with the infusion timer. The timer represents the real-world treatment session, so the app needs to treat it as its own thing.</p>
+
+          <p>That sounds obvious now. It was less obvious before I had to build around it.</p>
+
+          <h2>Learning With AI Without Letting AI Drive</h2>
+
+          <p>AI tools have been a huge part of this process. I have used ChatGPT, Claude, GitHub Copilot, and other tools to help generate code, troubleshoot bugs, explain concepts, and think through design.</p>
+
+          <p>They have helped a lot.</p>
+
+          <p>They have also caused problems.</p>
+
+          <p>The biggest lesson has been that AI works best as a collaborator, not an autopilot. It can produce code quickly, but that does not mean the code fits the project. It can misunderstand the goal. It can overcomplicate simple features. It can drift the game toward something more generic. It can confidently give an answer that sounds right until the browser disagrees.</p>
+
+          <p>The more I learn, the better I get at using AI correctly. I am learning to ask smaller questions, give better context, test everything, and avoid blindly pasting code I do not understand.</p>
+
+          <p>I still do not know JavaScript anywhere near the way an actual developer does. But I know a lot more than I did two weeks ago, and I am starting to understand the shape of the problems.</p>
+
+          <p>That feels like progress.</p>
+
+          <h2>What I Have Learned So Far</h2>
+
+          <p>The biggest thing I have learned is that building software is not just writing code.</p>
+
+          <p>It is systems thinking.</p>
+
+          <p>A change in one file can affect another file. A browser may keep using an old cached version. A service worker can preserve something you thought you replaced. An audio system can behave differently on mobile because the browser requires a user gesture. A game mechanic that makes sense in your head can confuse someone using it for the first time.</p>
+
+          <p>The work is less “type code, get app” and more “make a series of decisions, then discover which decisions were secretly connected.”</p>
+
+          <p>That part has been frustrating, but also weirdly familiar. Pharmacy is systems thinking too. Medication choice, dosing, labs, access, insurance, compounding, administration, monitoring, patient understanding. None of it happens in isolation.</p>
+
+          <p>The tools are different, but the mindset is not completely foreign.</p>
+
+          <h2>What Is Next</h2>
+
+          <p>Right now, the goal is not to build the perfect version.</p>
+
+          <p>The goal is to build the smallest useful version that can answer a few important questions:</p>
+
+          <p>Does this make infusion therapy feel more approachable? Does it help explain the medication? Is it easy enough to use without me explaining it? Is it engaging enough that a patient would actually want to keep playing?</p>
+
+          <p>The next steps are clinical accuracy review, cleaner onboarding, better mobile usability, more consistent tutorials, and real feedback from actual users.</p>
+
+          <p>There are plenty of bigger ideas waiting in line: more drugs, more polished animations, better audio, provider-facing versions, and maybe eventually a more advanced simulation model.</p>
+
+          <p>But for now, I am trying to keep the focus where it belongs.</p>
+
+          <blockquote>Build for the chair.</blockquote>
+
+          <p>Not the app store. Not the pitch deck. Not the imaginary perfect version.</p>
+
+          <p>The chair.</p>
+
+          <p>That is where the idea started, and that is where it needs to prove itself.</p>
+
+          <p>Dosecraft is still early. It is rough in places. It will probably change several more times.</p>
+
+          <p>But two weeks ago, this was mostly an idea in my head.</p>
+
+          <p>Now it is something I can open on my phone.</p>
+
+          <p>That feels worth documenting.</p>
+
+          <p><em>Dosecraft: Infusion Arcade is built under SharpRX Interactive and is available at <a href="https://dosecraft.io" target="_blank" rel="noopener">dosecraft.io</a>. It is designed for use during active IV infusion treatments and is not a medical education platform, clinical decision support tool, or substitute for professional medical guidance.</em></p>
+        </div>
+      </section>
+
+      <div class="post-nav">
+        <a class="back-link" href="../writing.html">← All posts</a>
+      </div>
+    </main>
+
+    <footer>
+      <span class="footer-name">rxsharp.com</span>
+      <a class="footer-contact" href="mailto:russellsharp8@gmail.com">russellsharp8@gmail.com</a>
+      <div style="display:flex; align-items:center; gap:1.25rem;">
+
+        <a href="https://github.com/RxSharp-com" target="_blank" rel="noopener"
+           class="footer-contact" title="GitHub" aria-label="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
+                     c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+                     5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0
+                     0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77
+                     a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7
+                     A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/russell-sharp-06863478" target="_blank" rel="noopener"
+           class="footer-contact" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+
+        <a href="https://instagram.com/rxsharp" target="_blank" rel="noopener"
+           class="footer-contact" title="Instagram" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
